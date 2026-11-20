@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f0faf4;
+    color: #0a2e1e;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, Cambria, serif;
+    letter-spacing: -0.015em;
+  }
+
+  .font-display {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Custom Scrollbar for botanical look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0faf4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c3decb;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9fc7aa;
+}
+
+/* ============================================================== */
+/* Dedicated Clean Print Styles for Delivery Packing Slips        */
+/* Hides all background pages, headers, tables & prints ONLY slip */
+/* ============================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide entire application shell and background portal */
+  #root > *:not(.print-isolated-modal) {
+    display: none !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show strictly the printable slip container and its contents */
+  #order-slip-printable,
+  #order-slip-printable * {
+    visibility: visible !important;
+  }
+
+  #order-slip-printable {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 650px !important;
+    margin: 0 auto !important;
+    padding: 16px !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+
+  /* Avoid unwanted page splits */
+  #order-slip-printable,
+  #order-slip-printable > div {
+    page-break-inside: avoid !important;
+  }
+}
+

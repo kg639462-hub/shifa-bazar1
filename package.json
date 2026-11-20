@@ -1,0 +1,26 @@
+{
+  "name": "ash-shifa-ecommerce",
+  "version": "1.0.0",
+  "description": "Ash-Shifa Herbals Modified MERN Stack (React, Node, Express, Supabase, Razorpay)",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install --prefix server && npm install --prefix client",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "start": "node server/server.js"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "supabase",
+    "razorpay",
+    "ecommerce",
+    "botanical"
+  ],
+  "author": "Ash-Shifa Herbal Dispensary",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.119.0"
+  }
+}
